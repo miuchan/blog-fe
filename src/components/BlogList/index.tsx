@@ -1,33 +1,54 @@
 import * as React from 'react';
 import { style } from 'typestyle';
-import { HashRouter as Router, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { observer, inject } from 'mobx-react';
 
 const blogList = style({
   width: '70%',
   padding: '20px'
-})
+});
 
 const listItem = style({
-  padding: '20px 0',
-})
+  padding: 20,
+  marginBottom: 20,
+  backgroundColor: '#FFF',
+});
 
 const blogTitle = style({
   fontSize: 28,
-})
+  textDecoration: 'none',
+});
 
 const blogContent = style({
+  wordBreak: 'break-all',
   fontSize: 16,
-})
-class BlogList extends React.Component {
+});
+
+interface IProps {
+  articleStore: any
+}
+@inject('articleStore')
+@observer
+class BlogList extends React.Component<IProps> {
+
+  componentDidMount() {
+    this.props.articleStore.fetchData()
+  }
+
+  renderBlogList() {
+    return this.props.articleStore.articleList.map((article: any) => (
+      <div className={listItem} key={article.id}>
+      <Link to={`/blog/${article.id}`}>
+        <h2 className={blogTitle}>{article.title}</h2>
+        <p className={blogContent}>{article.content}</p>
+      </Link>
+    </div>
+    ))
+  }
   public render() {
     return (
       <div className={blogList}>
-        <Router>
-          <Link to="/blog/1" className={listItem}>
-            <h2 className={blogTitle}>这是一篇博客</h2>
-            <p className={blogContent}>p</p>
-          </Link>
-        </Router>
+        {this.renderBlogList()}
       </div>
     );
   }

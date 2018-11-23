@@ -1,6 +1,20 @@
 * {
   box-sizing: border-box;
 }
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #000;
+}
+
+body {
+  background-color: #F6F6F6;
+}
+
 .App {
   display: flex;
   flex-direction: column;

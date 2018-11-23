@@ -18,13 +18,7 @@ const navbar = style({
       lineHeight: '70px',
       fontSize: 24,
       padding: '0 20px',
-      textDecoration: 'none',
       color: '#4484C2',
-      $nest: {
-        '&:visited': {
-          color: '#000',
-        },
-      },
     },
   },
 })
