@@ -13,6 +13,8 @@ const listItem = style({
   padding: 20,
   marginBottom: 20,
   backgroundColor: '#FFF',
+  border: '1px solid #E5E5E5',
+  borderRadius: 4,
 });
 
 const blogTitle = style({
@@ -21,7 +23,7 @@ const blogTitle = style({
 });
 
 const blogContent = style({
-  wordBreak: 'break-all',
+  wordBreak: 'break-word',
   fontSize: 16,
 });
 

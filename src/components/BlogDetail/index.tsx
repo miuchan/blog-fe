@@ -10,9 +10,11 @@ interface IProps {
 
 const contentClass = style({
   width: '70%',
-  marginTop: 20,
+  margin: 20,
   padding: 20,
   backgroundColor: '#FFF',
+  border: '1px solid #E5E5E5',
+  borderRadius: 4,
   $nest: {
     '& h1': {
       textAlign: 'center',
