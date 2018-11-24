@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { style } from 'typestyle';
 import { Link } from 'react-router-dom';
+import * as ReactMarkdown from 'react-markdown';
 import { observer, inject } from 'mobx-react';
 
 const blogList = style({
@@ -45,7 +46,7 @@ class BlogList extends React.Component<IProps> {
       <Link to={`/blog/${article.id}`}>
         <h2 className={blogTitle}>{article.title}</h2>
         <div className={createTime}>{article.createAt}</div>
-        <p className={blogContent}>{article.content}</p>
+        <ReactMarkdown className={blogContent} source={article.content} />
       </Link>
     </div>
     ))
