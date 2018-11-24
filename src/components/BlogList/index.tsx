@@ -24,6 +24,10 @@ const blogContent = style({
   fontSize: 16,
 });
 
+const createTime = style({
+  fontSize: 14,
+})
+
 interface IProps {
   articleStore: any
 }
@@ -40,6 +44,7 @@ class BlogList extends React.Component<IProps> {
       <div className={listItem} key={article.id}>
       <Link to={`/blog/${article.id}`}>
         <h2 className={blogTitle}>{article.title}</h2>
+        <div className={createTime}>{article.createAt}</div>
         <p className={blogContent}>{article.content}</p>
       </Link>
     </div>
