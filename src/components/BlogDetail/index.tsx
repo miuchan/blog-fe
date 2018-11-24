@@ -9,6 +9,7 @@ interface IProps {
 }
 
 const contentClass = style({
+  width: '70%',
   marginTop: 20,
   padding: 20,
   backgroundColor: '#FFF',
